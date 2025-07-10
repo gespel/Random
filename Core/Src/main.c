@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "slang-lib.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -73,7 +74,10 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  char text[] = "x = 3;";
+  int len = 0;
+  Token* tokens = tokenize(text, &len);
+  SlangInterpreter* si = createSlangInterpreter(NULL, len);
   /* USER CODE END Init */
 
   /* Configure the system clock */
